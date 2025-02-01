@@ -18,6 +18,11 @@ class UserViewSet(GenericViewSet):
         return User.objects.all().order_by('-created_at')
 
     def list(self, request, **kwargs):
+        """
+        Scope: Lists users with entry details.
+        URI: /guestbook/user/
+        HTTP verbs: GET.
+        """
         users = self.get_queryset()
         users = users.annotate(
             username=F('name'),
@@ -39,4 +44,4 @@ class UserViewSet(GenericViewSet):
             users,
             many=True
         )
-        return Response(serializer.data, status=HTTP_200_OK)
+        return Response({"users": serializer.data}, status=HTTP_200_OK)

@@ -15,6 +15,11 @@ class EntryViewSet(GenericViewSet):
         return Entry.objects.select_related('user').all().order_by('-created_at')
 
     def create(self, request, *args, **kwargs):
+        """
+        Scope: Creates a new entry and user if it does not exist.
+        URI: /guestbook/entry/
+        HTTP verbs: POST.
+        """
         serializer = EntrySerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
@@ -29,6 +34,11 @@ class EntryViewSet(GenericViewSet):
         return Response(serializer.validated_data, status=HTTP_201_CREATED)
 
     def list(self, request, **kwargs):
+        """
+        Scope: Lists all entries in descending order.
+        URI: /guestbook/entry/
+        HTTP verbs: GET.
+        """
         entries = self.get_queryset()
         entries = self.paginate_queryset(entries)
         serializer = EntrySerializer(
