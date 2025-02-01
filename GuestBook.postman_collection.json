@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "3e9d3d43-d33b-4f9a-b997-cf86dd1a8abc",
+		"name": "Guest Book",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39282850"
+	},
+	"item": [
+		{
+			"name": "Create Entry",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"mert\",\n    \"subject\": \"subject test 5\",\n    \"message\": \"message message message test 5\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/guestbook/entry/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"guestbook",
+						"entry",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Entries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/guestbook/entry/?page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"guestbook",
+						"entry",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/guestbook/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"guestbook",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
