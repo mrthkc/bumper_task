@@ -1,0 +1,10 @@
+__pypackages__/
+__pycache__/
+
+# Environments
+.venv
+.vscode/
+venv/
+
+# MacOS
+.DS_Store
